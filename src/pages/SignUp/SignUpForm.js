@@ -187,12 +187,13 @@ export default function SignUp() {
                     variant="outlined"
                     required
                     fullWidth
-                    id="email"
-                    label="Email Address"
-                    name="email"
-                    autoComplete="email"
-                    onChange={handleChange("email")}
-                    onBlur={handleBlur("email")}
+                    id="password"
+                    label="Password"
+                    name="password"
+                    type="password"
+                    autoComplete="password"
+                    onChange={handleChange("password")}
+                    onBlur={handleBlur("password")}
                   />
                 </Grid>
               </Grid>
