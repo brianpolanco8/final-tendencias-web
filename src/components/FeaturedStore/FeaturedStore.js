@@ -21,9 +21,8 @@ const useStyles = makeStyles({
   },
 });
 
-export default function FeaturedStore(props) {
+const FeaturedStore = ({ item }) => {
   const classes = useStyles();
-  const { post } = props;
 
   return (
     <Grid item xs={12} md={6}>
@@ -32,32 +31,34 @@ export default function FeaturedStore(props) {
           <div className={classes.cardDetails}>
             <CardContent>
               <Typography component="h2" variant="h5">
-                {post.title}
+                {item.title}
               </Typography>
               <Typography variant="subtitle1" color="textSecondary">
-                {post.date}
+                $ {item.price}
               </Typography>
               <Typography variant="subtitle1" paragraph>
-                {post.description}
+                {item.description}
               </Typography>
-              {/* <Typography variant="subtitle1" color="primary">
-                Continue reading...
-              </Typography> */}
+              <Typography variant="subtitle1" color="primary">
+                Añadir al carrito
+              </Typography>
             </CardContent>
           </div>
           <Hidden xsDown>
             <CardMedia
               className={classes.cardMedia}
-              image={post.image}
-              title={post.imageTitle}
+              image={item.image}
+              title={item.imageTitle}
             />
           </Hidden>
         </Card>
       </CardActionArea>
     </Grid>
   );
-}
+};
 
 FeaturedStore.propTypes = {
   post: PropTypes.object,
 };
+
+export default FeaturedStore;

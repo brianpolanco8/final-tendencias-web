@@ -3,42 +3,42 @@ import { FeaturedStore } from "components";
 import React from "react";
 
 const Articles = () => {
-  const featuredPosts = [
+  const items = [
     {
-      title: "Articulo 1",
-      date: "Nov 12",
+      title: "Medicina 1",
+      price: 150,
       description:
         "This is a wider card with supporting text below as a natural lead-in to additional content.",
       image: "https://source.unsplash.com/random",
       imageText: "Image Text",
     },
     {
-      title: "Articulo 2",
-      date: "Nov 11",
+      title: "Medicina 2",
+      price: 150,
       description:
         "This is a wider card with supporting text below as a natural lead-in to additional content.",
       image: "https://source.unsplash.com/random",
       imageText: "Image Text",
     },
     {
-      title: "Articulo 3",
-      date: "Nov 11",
+      title: "Medicina 3",
+      price: 150,
       description:
         "This is a wider card with supporting text below as a natural lead-in to additional content.",
       image: "https://source.unsplash.com/random",
       imageText: "Image Text",
     },
     {
-      title: "Articulo 4",
-      date: "Nov 11",
+      title: "Medicina 4",
+      price: 150,
       description:
         "This is a wider card with supporting text below as a natural lead-in to additional content.",
       image: "https://source.unsplash.com/random",
       imageText: "Image Text",
     },
     {
-      title: "Articulo 5",
-      date: "Nov 11",
+      title: "Medicina 5",
+      price: 150,
       description:
         "This is a wider card with supporting text below as a natural lead-in to additional content.",
       image: "https://source.unsplash.com/random",
@@ -47,8 +47,8 @@ const Articles = () => {
   ];
   return (
     <Grid container spacing={4}>
-      {featuredPosts.map((post) => (
-        <FeaturedStore key={post.title} post={post} />
+      {items.map((item) => (
+        <FeaturedStore key={item.title} item={item} />
       ))}
     </Grid>
   );
