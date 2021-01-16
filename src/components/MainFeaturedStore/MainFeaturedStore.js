@@ -35,21 +35,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MainFeaturedStore(props) {
+const MainFeaturedStore = ({ item }) => {
   const classes = useStyles();
-  const { post } = props;
 
   return (
     <Paper
       className={classes.mainFeaturedPost}
-      style={{ backgroundImage: `url(${post.image})` }}
+      style={{ backgroundImage: `url(${item.image})` }}
     >
       {/* Increase the priority of the hero background image */}
       {
         <img
           style={{ display: "none" }}
-          src={post.image}
-          alt={post.imageText}
+          src={item.image}
+          alt={item.imageText}
         />
       }
       <div className={classes.overlay} />
@@ -62,21 +61,23 @@ export default function MainFeaturedStore(props) {
               color="inherit"
               gutterBottom
             >
-              {post.title}
+              {item.title}
             </Typography>
             <Typography variant="h5" color="inherit" paragraph>
-              {post.description}
+              {item.description}
             </Typography>
             <Link variant="subtitle1" href="#">
-              {post.linkText}
+              {item.linkText}
             </Link>
           </div>
         </Grid>
       </Grid>
     </Paper>
   );
-}
+};
 
 MainFeaturedStore.propTypes = {
   post: PropTypes.object,
 };
+
+export default MainFeaturedStore;

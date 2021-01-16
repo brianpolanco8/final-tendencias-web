@@ -43,8 +43,6 @@ export default function Header(props) {
   const { sections, title } = props;
   const cartItemsCount = useSelector(getCartCount);
 
-  console.log("cartItemsCount", cartItemsCount);
-
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
