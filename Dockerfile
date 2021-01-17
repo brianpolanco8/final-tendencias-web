@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:12-alpine
 
 WORKDIR /app
 
@@ -10,5 +10,5 @@ COPY . ./
 
 # EXPOSE 3000
 
-CMD ["yarn", "start"]
+CMD ["yarn", "build"]
 

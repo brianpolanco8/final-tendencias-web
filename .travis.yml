@@ -16,7 +16,7 @@ install:
   - yarn install
 
 script:
-  - yarn test
+  - yarn test --watchAll=false
   - yarn build
   # build docker images
   - docker build -t brianpolanco/medimarket .
