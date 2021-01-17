@@ -9,6 +9,7 @@ const App = () => {
     { title: "Ver articulos", url: "/articles" },
     // { title: "Comprar", url: "#" },
   ];
+  console.log("yey");
   return (
     <div className="App">
       <Router>
