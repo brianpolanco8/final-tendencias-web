@@ -1,6 +1,5 @@
 import React from "react";
 // import "./MenuItem.scss";
-import Logo from "../../assets/images/450_1000.jpeg";
 
 const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => (
   <div

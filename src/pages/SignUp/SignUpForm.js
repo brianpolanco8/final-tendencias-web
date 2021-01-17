@@ -12,7 +12,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { MenuItem, Select } from "@material-ui/core";
 import { Formik } from "formik";
-import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 // function Copyright() {
@@ -50,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const classes = useStyles();
-  const [selectedDate, handleDateChange] = useState(new Date());
+  // const [selectedDate, handleDateChange] = useState(new Date());
   const history = useHistory();
 
   const onSubmit = (values) => {
