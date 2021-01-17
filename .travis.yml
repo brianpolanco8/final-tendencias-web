@@ -19,7 +19,7 @@ script:
   - yarn test --watchAll=false
   - yarn build
   # build docker images
-  - docker build -t brianpolanco/medimarket .
+  - docker build -t brianpolanco/medimarket -f Dockerfile.prod .
   - docker tag brianpolanco/medimarket registry.heroku.com/$HEROKU_APP_NAME/web
 
 deploy:
