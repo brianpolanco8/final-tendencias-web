@@ -91,7 +91,10 @@ export default function Header(props) {
               <Button
                 variant="outlined"
                 size="small"
-                onClick={() => dispatch(clear())}
+                onClick={() => {
+                  dispatch(clear());
+                  window.location.reload();
+                }}
               >
                 Cerrar Sesión
               </Button>

@@ -24,7 +24,7 @@ const useStyles = makeStyles({
   },
 });
 
-const FeaturedStore = ({ item }) => {
+const FeaturedStore = ({ item, pathname }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
@@ -52,13 +52,15 @@ const FeaturedStore = ({ item }) => {
                 {item.description}
               </Typography>
               <Typography component="h4" variant="h6">
-                <Button
-                  variant="outlined"
-                  size="small"
-                  onClick={() => handleAddToCart(item)}
-                >
-                  Añadir al carrito
-                </Button>
+                {pathname !== "/cart" && (
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    onClick={() => handleAddToCart(item)}
+                  >
+                    Añadir al carrito
+                  </Button>
+                )}
               </Typography>
             </CardContent>
           </div>

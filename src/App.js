@@ -3,13 +3,15 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Articles, Cart, Home, SignIn, SignUp } from "pages";
 import { Header, Footer } from "components";
 import { Container } from "@material-ui/core";
+import { useSelector } from "react-redux";
+import { getAuthState } from "store/slices/app";
 
 const App = () => {
   const sections = [
     { title: "Ver articulos", url: "/articles" },
     // { title: "Comprar", url: "#" },
   ];
-  console.log("yey");
+  const isAuth = useSelector(getAuthState);
   return (
     <div className="App">
       <Router>
@@ -21,9 +23,16 @@ const App = () => {
             <Route path="/signin" render={(props) => <SignIn {...props} />} />
             <Route
               path="/articles"
-              render={(props) => <Articles {...props} />}
+              render={(props) =>
+                isAuth ? <Articles {...props} /> : <SignIn {...props} />
+              }
             />
-            <Route path="/cart" render={(props) => <Cart {...props} />} />
+            <Route
+              path="/cart"
+              render={(props) =>
+                isAuth ? <Cart {...props} /> : <SignIn {...props} />
+              }
+            />
             <Route path="/" render={(props) => <Home {...props} />} />
           </Switch>
           <Footer
