@@ -12,26 +12,29 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const mainFeaturedPost = {
-  title: "Farmacia moderna",
+  title: "Vacuna Covid-19",
   description:
     "Occaecat cillum eu qui qui. Magna non ullamco mollit ullamco excepteur. Sit amet mollit elit nostrud enim velit ut ullamco culpa. Magna quis excepteur ex Lorem irure mollit enim mollit nulla ea adipisicing voluptate.",
-  image: "https://source.unsplash.com/random",
+  image: selectRandomImage()?.default,
   imgText: "main image description",
+  price: 300,
   // linkText: "Continue reading…",
 };
 
 const featuredPosts = [
   {
-    title: "Farmacia 1",
+    title: "Vacuna Moderna",
     date: "Nov 12",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content.",
     image: selectRandomImage()?.default,
+    price: 150,
     imageText: "Image Text",
   },
   {
-    title: "Farmacia 2",
+    title: "Vacuna Pfizer",
     date: "Nov 11",
+    price: 120,
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content.",
     image: selectRandomImage()?.default,

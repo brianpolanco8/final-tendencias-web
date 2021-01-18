@@ -19,7 +19,7 @@ const Articles = () => {
     },
     {
       title: "Medicina 2",
-      price: 150,
+      price: 180,
       description:
         "This is a wider card with supporting text below as a natural lead-in to additional content.",
       image: selectRandomImage()?.default,
@@ -27,7 +27,7 @@ const Articles = () => {
     },
     {
       title: "Medicina 3",
-      price: 150,
+      price: 120,
       description:
         "This is a wider card with supporting text below as a natural lead-in to additional content.",
       image: selectRandomImage()?.default,
@@ -35,7 +35,7 @@ const Articles = () => {
     },
     {
       title: "Medicina 4",
-      price: 150,
+      price: 140,
       description:
         "This is a wider card with supporting text below as a natural lead-in to additional content.",
       image: selectRandomImage()?.default,
@@ -43,7 +43,7 @@ const Articles = () => {
     },
     {
       title: "Medicina 5",
-      price: 150,
+      price: 200,
       description:
         "This is a wider card with supporting text below as a natural lead-in to additional content.",
       image: selectRandomImage()?.default,
