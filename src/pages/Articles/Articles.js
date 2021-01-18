@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Grid, Typography } from "@material-ui/core";
 import { FeaturedStore } from "components";
 import { useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 
 const Articles = () => {
   const items = [
@@ -51,9 +51,9 @@ const Articles = () => {
 
   const fetchArticles = async () => {
     try {
-      const response = await axios.get(
-        "https://w912mzvgpk.execute-api.us-east-2.amazonaws.com/production/articulo/get-all"
-      );
+      // const response = await axios.get(
+      //   "https://w912mzvgpk.execute-api.us-east-2.amazonaws.com/production/articulo/get-all"
+      // );
       // setArticles(response.data);
     } catch (error) {
       console.log(error);
