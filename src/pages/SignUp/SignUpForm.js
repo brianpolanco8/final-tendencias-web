@@ -13,19 +13,8 @@ import Container from "@material-ui/core/Container";
 import { MenuItem, Select } from "@material-ui/core";
 import { Formik } from "formik";
 import { useHistory } from "react-router-dom";
-
-// function Copyright() {
-//   return (
-//     <Typography variant="body2" color="textSecondary" align="center">
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://material-ui.com/">
-//         Your Website
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
+import { useDispatch } from "react-redux";
+import { setUserData, setIsAuth } from "store/slices/app";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -51,10 +40,13 @@ export default function SignUp() {
   const classes = useStyles();
   // const [selectedDate, handleDateChange] = useState(new Date());
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const onSubmit = (values) => {
     console.log(values);
-    history.push("/");
+    dispatch(setIsAuth({ value: true }));
+    dispatch(setUserData({ value: values }));
+    history.push("/articles");
   };
 
   return (

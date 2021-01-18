@@ -8,6 +8,9 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Hidden from "@material-ui/core/Hidden";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, getCartState } from "store/slices/app";
+import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles({
   card: {
@@ -23,6 +26,14 @@ const useStyles = makeStyles({
 
 const FeaturedStore = ({ item }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  const cart = useSelector(getCartState);
+
+  const handleAddToCart = (item) => {
+    dispatch(addToCart({ value: [...cart.items, item] }));
+    console.log("[...cart.items, item]", [...cart.items, item]);
+  };
 
   return (
     <Grid item xs={12} md={6}>
@@ -39,8 +50,14 @@ const FeaturedStore = ({ item }) => {
               <Typography variant="subtitle1" paragraph>
                 {item.description}
               </Typography>
-              <Typography variant="subtitle1" color="primary">
-                Añadir al carrito
+              <Typography component="h4" variant="h6">
+                <Button
+                  variant="outlined"
+                  size="small"
+                  onClick={() => handleAddToCart(item)}
+                >
+                  Añadir al carrito
+                </Button>
               </Typography>
             </CardContent>
           </div>

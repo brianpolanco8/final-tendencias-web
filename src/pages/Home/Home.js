@@ -11,9 +11,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const mainFeaturedPost = {
-  title: "Title of a longer featured blog post",
+  title: "Farmacia moderna",
   description:
-    "Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.",
+    "Occaecat cillum eu qui qui. Magna non ullamco mollit ullamco excepteur. Sit amet mollit elit nostrud enim velit ut ullamco culpa. Magna quis excepteur ex Lorem irure mollit enim mollit nulla ea adipisicing voluptate.",
   image: "https://source.unsplash.com/random",
   imgText: "main image description",
   // linkText: "Continue reading…",
@@ -21,7 +21,7 @@ const mainFeaturedPost = {
 
 const featuredPosts = [
   {
-    title: "Featured post",
+    title: "Farmacia 1",
     date: "Nov 12",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content.",
@@ -29,7 +29,7 @@ const featuredPosts = [
     imageText: "Image Text",
   },
   {
-    title: "Post title",
+    title: "Farmacia 2",
     date: "Nov 11",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content.",

@@ -5,11 +5,16 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Badge, withStyles } from "@material-ui/core";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import { useSelector } from "react-redux";
-import { getCartCount } from "store/slices/app";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getCartCount,
+  getAuthState,
+  getUserData,
+  clear,
+} from "store/slices/app";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -41,6 +46,10 @@ export default function Header(props) {
   const classes = useStyles();
   const { sections, title } = props;
   const cartItemsCount = useSelector(getCartCount);
+  const isAuth = useSelector(getAuthState);
+  const userData = useSelector(getUserData);
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   return (
     <React.Fragment>
@@ -56,21 +65,44 @@ export default function Header(props) {
         >
           {title}
         </Typography>
-        <Link to="/signin">
-          <Button variant="outlined" size="small">
-            Sign In
-          </Button>
-        </Link>
-        <Link to="/signup">
-          <Button variant="outlined" size="small">
-            Sign Up
-          </Button>
-        </Link>
-        <IconButton aria-label="cart">
-          <StyledBadge badgeContent={cartItemsCount} color="secondary">
-            <ShoppingCartIcon />
-          </StyledBadge>
-        </IconButton>
+        {!isAuth ? (
+          <>
+            <Link to="/signin">
+              <Button variant="outlined" size="small">
+                Sign In
+              </Button>
+            </Link>
+            <Link to="/signup">
+              <Button variant="outlined" size="small">
+                Sign Up
+              </Button>
+            </Link>
+          </>
+        ) : (
+          <>
+            <Typography
+              component="h4"
+              variant="h6"
+              style={{ marginRight: "3px" }}
+            >
+              {userData.nombre}
+            </Typography>
+            <Typography component="h4" variant="h6">
+              <Button
+                variant="outlined"
+                size="small"
+                onClick={() => dispatch(clear())}
+              >
+                Cerrar Sesión
+              </Button>
+            </Typography>
+            <IconButton aria-label="cart" onClick={() => history.push("/cart")}>
+              <StyledBadge badgeContent={cartItemsCount} color="secondary">
+                <ShoppingCartIcon />
+              </StyledBadge>
+            </IconButton>
+          </>
+        )}
       </Toolbar>
       <Toolbar
         component="nav"

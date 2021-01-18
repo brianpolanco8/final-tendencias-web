@@ -1,6 +1,8 @@
-import { Grid } from "@material-ui/core";
+import React, { useState } from "react";
+import { Grid, Typography } from "@material-ui/core";
 import { FeaturedStore } from "components";
-import React from "react";
+import { useEffect } from "react";
+import axios from "axios";
 
 const Articles = () => {
   const items = [
@@ -45,11 +47,34 @@ const Articles = () => {
       imageText: "Image Text",
     },
   ];
+  // const [articles, setArticles] = useState();
+
+  const fetchArticles = async () => {
+    try {
+      const response = await axios.get(
+        "https://w912mzvgpk.execute-api.us-east-2.amazonaws.com/production/articulo/get-all"
+      );
+      console.log("response", response);
+      // setArticles(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchArticles();
+  }, []);
   return (
-    <Grid container spacing={4}>
-      {items.map((item) => (
-        <FeaturedStore key={item.title} item={item} />
-      ))}
+    <Grid container>
+      <Typography variant="h4" gutterBottom>
+        Articulos
+      </Typography>
+
+      <Grid container spacing={4}>
+        {items.map((item) => (
+          <FeaturedStore key={item.title} item={item} />
+        ))}
+      </Grid>
     </Grid>
   );
 };

@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Articles, Home, SignIn, SignUp } from "pages";
+import { Articles, Cart, Home, SignIn, SignUp } from "pages";
 import { Header, Footer } from "components";
 import { Container } from "@material-ui/core";
 
@@ -23,6 +23,7 @@ const App = () => {
               path="/articles"
               render={(props) => <Articles {...props} />}
             />
+            <Route path="/cart" render={(props) => <Cart {...props} />} />
             <Route path="/" render={(props) => <Home {...props} />} />
           </Switch>
           <Footer

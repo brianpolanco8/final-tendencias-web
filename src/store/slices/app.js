@@ -5,7 +5,7 @@ export const appSlice = createSlice({
   initialState: {
     isAuth: false,
     data: {
-      name: null,
+      nombre: null,
       email: null,
     },
     cart: {
@@ -14,16 +14,42 @@ export const appSlice = createSlice({
     },
   },
   reducers: {
-    setIsAuth: (state, action) => (state.isAuth = action.payload.value),
-    increaseCart: (state, action) => (state.cart.count = state.cart.count + 1),
+    setIsAuth: (state, action) => {
+      state.isAuth = action.payload.value;
+    },
+    addToCart: (state, action) => {
+      console.log("reducer", [...state.cart.items, ...action.payload.value]);
+      state.cart = {
+        count: state.cart.count + 1,
+        items: [...state.cart.items, ...action.payload.value],
+      };
+    },
+    setUserData: (state, action) => {
+      state.data = action.payload.value;
+    },
+    clear: () => (state, action) => {
+      state = {
+        isAuth: false,
+        data: {
+          nombre: null,
+          email: null,
+        },
+        cart: {
+          count: 0,
+          items: [],
+        },
+      };
+    },
   },
 });
 
 // export actions
-export const { setIsAuth, increaseCart } = appSlice.actions;
+export const { setIsAuth, addToCart, setUserData, clear } = appSlice.actions;
 
 // export state data
-export const isAuth = (state) => state.app.isAuth;
-export const getCartCount = (state) => state.app.cart.count;
+export const getAuthState = (state) => state.app.isAuth;
+export const getCartCount = (state) => state?.app?.cart?.count;
+export const getUserData = (state) => state.app.data;
+export const getCartState = (state) => state.app.cart;
 
 export default appSlice.reducer;
