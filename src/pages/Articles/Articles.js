@@ -4,6 +4,7 @@ import { FeaturedStore } from "components";
 // import { useEffect } from "react";
 // import axios from "axios";
 import { selectRandomImage } from "utils";
+import { Logo1, Logo4, Logo5, Logo7, Logo8 } from "assets/images";
 
 // console.log("images", selectRandomImage());
 
@@ -14,7 +15,7 @@ const Articles = () => {
       price: 150,
       description:
         "This is a wider card with supporting text below as a natural lead-in to additional content.",
-      image: selectRandomImage()?.default,
+      image: Logo1,
       imageText: "Image Text",
     },
     {
@@ -22,7 +23,7 @@ const Articles = () => {
       price: 180,
       description:
         "This is a wider card with supporting text below as a natural lead-in to additional content.",
-      image: selectRandomImage()?.default,
+      image: Logo7,
       imageText: "Image Text",
     },
     {
@@ -30,7 +31,7 @@ const Articles = () => {
       price: 120,
       description:
         "This is a wider card with supporting text below as a natural lead-in to additional content.",
-      image: selectRandomImage()?.default,
+      image: Logo8,
       imageText: "Image Text",
     },
     {
@@ -38,7 +39,7 @@ const Articles = () => {
       price: 140,
       description:
         "This is a wider card with supporting text below as a natural lead-in to additional content.",
-      image: selectRandomImage()?.default,
+      image: Logo5,
       imageText: "Image Text",
     },
     {
@@ -46,7 +47,7 @@ const Articles = () => {
       price: 200,
       description:
         "This is a wider card with supporting text below as a natural lead-in to additional content.",
-      image: selectRandomImage()?.default,
+      image: Logo4,
       imageText: "Image Text",
     },
   ];

@@ -3,7 +3,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import { MainFeaturedStore, FeaturedStore } from "components";
-import { selectRandomImage } from "utils";
+import Logo from "assets/images/christina-victoria-craft-ZHys6xN7sUE-unsplash.jpg";
+import Logo2 from "assets/images/christina-victoria-craft-ZHys6xN7sUE-unsplash.jpg";
+import Logo3 from "assets/images/450_1000.jpeg";
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -15,7 +17,7 @@ const mainFeaturedPost = {
   title: "Vacuna Covid-19",
   description:
     "Occaecat cillum eu qui qui. Magna non ullamco mollit ullamco excepteur. Sit amet mollit elit nostrud enim velit ut ullamco culpa. Magna quis excepteur ex Lorem irure mollit enim mollit nulla ea adipisicing voluptate.",
-  image: selectRandomImage()?.default,
+  image: Logo,
   imgText: "main image description",
   price: 300,
   // linkText: "Continue reading…",
@@ -27,7 +29,7 @@ const featuredPosts = [
     date: "Nov 12",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    image: selectRandomImage()?.default,
+    image: Logo2,
     price: 150,
     imageText: "Image Text",
   },
@@ -37,7 +39,7 @@ const featuredPosts = [
     price: 120,
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    image: selectRandomImage()?.default,
+    image: Logo3,
     imageText: "Image Text",
   },
 ];
