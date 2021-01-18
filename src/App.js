@@ -8,7 +8,7 @@ import { getAuthState } from "store/slices/app";
 
 const App = () => {
   const sections = [
-    { title: "Ver articulos", url: "/articles" },
+    { title: "Mostrar articulos", url: "/articles" },
     // { title: "Comprar", url: "#" },
   ];
   const isAuth = useSelector(getAuthState);
