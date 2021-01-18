@@ -54,7 +54,9 @@ export default function Header(props) {
   return (
     <React.Fragment>
       <Toolbar className={classes.toolbar}>
-        <Button size="small">Subscribe</Button>
+        <Button size="small" onClick={() => history.push("/")}>
+          Go Home
+        </Button>
         <Typography
           component="h2"
           variant="h5"

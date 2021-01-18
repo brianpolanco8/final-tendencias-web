@@ -17,7 +17,7 @@ const App = () => {
       <Router>
         {/* HEADER */}
         <Container maxWidth="lg">
-          <Header title="MediMarket" sections={sections} />
+          <Header title="MediMarket" sections={sections} pathname={"/"} />
           <Switch>
             <Route path="/signup" render={(props) => <SignUp {...props} />} />
             <Route path="/signin" render={(props) => <SignIn {...props} />} />

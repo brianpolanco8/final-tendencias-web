@@ -1,7 +1,6 @@
-import { configureStore, createStore } from "@reduxjs/toolkit";
-import { mount, shallow } from "enzyme";
+import { configureStore } from "@reduxjs/toolkit";
+import { shallow } from "enzyme";
 import { Articles, Cart, Home, SignIn, SignUp } from "pages";
-import { Provider, useDispatch, useSelector } from "react-redux";
 import ReduxProvider from "tests/GetMockProvider";
 import { createSlice } from "@reduxjs/toolkit";
 
