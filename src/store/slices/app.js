@@ -21,7 +21,7 @@ export const appSlice = createSlice({
       console.log("reducer", [...state.cart.items, ...action.payload.value]);
       state.cart = {
         count: state.cart.count + 1,
-        items: [...state.cart.items, ...action.payload.value],
+        items: action.payload.value,
       };
     },
     setUserData: (state, action) => {

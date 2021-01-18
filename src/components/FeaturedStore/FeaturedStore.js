@@ -31,8 +31,9 @@ const FeaturedStore = ({ item }) => {
   const cart = useSelector(getCartState);
 
   const handleAddToCart = (item) => {
-    dispatch(addToCart({ value: [...cart.items, item] }));
-    console.log("[...cart.items, item]", [...cart.items, item]);
+    const newCart = [...cart.items];
+    newCart.push(item);
+    dispatch(addToCart({ value: newCart }));
   };
 
   return (

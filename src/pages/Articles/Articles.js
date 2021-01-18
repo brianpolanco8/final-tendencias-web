@@ -54,7 +54,6 @@ const Articles = () => {
       const response = await axios.get(
         "https://w912mzvgpk.execute-api.us-east-2.amazonaws.com/production/articulo/get-all"
       );
-      console.log("response", response);
       // setArticles(response.data);
     } catch (error) {
       console.log(error);
