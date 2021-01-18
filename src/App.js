@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Articles, Cart, Home, SignIn, SignUp } from "pages";
+import { AddArticle, Articles, Cart, Home, SignIn, SignUp } from "pages";
 import { Header, Footer } from "components";
 import { Container } from "@material-ui/core";
 import { useSelector } from "react-redux";
@@ -29,6 +29,12 @@ const App = () => {
               path="/cart"
               render={(props) =>
                 isAuth ? <Cart {...props} /> : <SignIn {...props} />
+              }
+            />
+            <Route
+              path="/addArticle"
+              render={(props) =>
+                isAuth ? <AddArticle {...props} /> : <SignIn {...props} />
               }
             />
             <Route path="/" render={(props) => <Home {...props} />} />

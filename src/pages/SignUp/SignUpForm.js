@@ -60,7 +60,13 @@ export default function SignUp() {
           Sign up
         </Typography>
         <Formik initialValues={{}} onSubmit={(values) => onSubmit(values)}>
-          {({ handleSubmit, setFieldValue, handleBlur, handleChange }) => (
+          {({
+            handleSubmit,
+            setFieldValue,
+            handleBlur,
+            handleChange,
+            values,
+          }) => (
             <>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
@@ -142,22 +148,24 @@ export default function SignUp() {
                     {/* <MenuItem value={30}>Thirty</MenuItem> */}
                   </Select>
                 </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    id="date"
-                    label="Birthday"
-                    type="date"
-                    defaultValue={new Date()}
-                    className={classes.textField}
-                    variant="outlined"
-                    fullWidth
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                    onChange={handleChange("fechaDeNacimiento")}
-                    onBlur={handleBlur("fechaDeNacimiento")}
-                  />
-                </Grid>
+                {values.userType !== "Farmacia" && (
+                  <Grid item xs={12}>
+                    <TextField
+                      id="date"
+                      label="Birthday"
+                      type="date"
+                      defaultValue={new Date()}
+                      className={classes.textField}
+                      variant="outlined"
+                      fullWidth
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                      onChange={handleChange("fechaDeNacimiento")}
+                      onBlur={handleBlur("fechaDeNacimiento")}
+                    />
+                  </Grid>
+                )}
 
                 <Grid item xs={12}>
                   <TextField

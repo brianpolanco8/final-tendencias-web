@@ -9,6 +9,7 @@ import { Link, useHistory } from "react-router-dom";
 import { Badge, withStyles } from "@material-ui/core";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { useDispatch, useSelector } from "react-redux";
+import AddToPhotosIcon from "@material-ui/icons/AddToPhotos";
 import {
   getCartCount,
   getAuthState,
@@ -126,6 +127,16 @@ export default function Header(props) {
             {section.title}
           </Link>
         ))}
+        {userData.userType === "Farmacia" && (
+          <IconButton
+            aria-label="cart"
+            onClick={() => history.push("/addArticle")}
+          >
+            <StyledBadge badgeContent={cartItemsCount} color="secondary">
+              <AddToPhotosIcon />
+            </StyledBadge>
+          </IconButton>
+        )}
       </Toolbar>
     </React.Fragment>
   );

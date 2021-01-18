@@ -3,15 +3,18 @@ import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
+import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { Formik } from "formik";
-import { useDispatch } from "react-redux";
-import { setIsAuth, setUserData } from "store/slices/app";
-import { Link, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { Logo4 } from "assets/images";
+import { getArticlesState } from "store/slices/app";
+import LocalPharmacyIcon from "@material-ui/icons/LocalPharmacy";
+import { addArticle } from "store/slices/app";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -33,16 +36,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function AddArticleForm() {
   const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
+  const articles = useSelector(getArticlesState);
 
   const onSubmit = (values) => {
-    dispatch(setIsAuth({ value: true }));
-    dispatch(setUserData({ value: { nombre: "Brian", ...values } }));
-    console.log("values", values);
-    history.push("/");
+    const newArticles = [...articles];
+    newArticles.push({ ...values, image: Logo4 });
+    console.log("newArticles", newArticles);
+    dispatch(addArticle({ value: newArticles }));
+
+    history.push("/articles");
   };
 
   return (
@@ -50,10 +56,10 @@ export default function SignIn() {
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+          <LocalPharmacyIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Agregar articulo
         </Typography>
         <Formik initialValues={{}} onSubmit={(values) => onSubmit(values)}>
           {({ handleSubmit, handleBlur, setFieldValue, handleChange }) => (
@@ -63,31 +69,36 @@ export default function SignIn() {
                 margin="normal"
                 required
                 fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
+                id="title"
+                label="Nombre"
+                name="title"
+                autoComplete="title"
                 autoFocus
-                onChange={handleChange("email")}
-                onBlur={handleBlur("email")}
+                onChange={handleChange("title")}
+                onBlur={handleBlur("title")}
               />
               <TextField
                 variant="outlined"
                 margin="normal"
                 required
                 fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                onChange={handleChange("password")}
-                onBlur={handleBlur("password")}
+                name="description"
+                label="Descripción"
+                id="description"
+                onChange={handleChange("description")}
+                onBlur={handleBlur("description")}
               />
-              {/* <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          /> */}
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="price"
+                label="Precio"
+                id="price"
+                onChange={handleChange("price")}
+                onBlur={handleBlur("price")}
+              />
               <Button
                 type="submit"
                 fullWidth
@@ -96,11 +107,11 @@ export default function SignIn() {
                 className={classes.submit}
                 onClick={handleSubmit}
               >
-                Sign In
+                Agregar
               </Button>
               <Grid container>
                 <Grid item>
-                  <Link to="/signin" variant="body2">
+                  <Link href="#" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>
