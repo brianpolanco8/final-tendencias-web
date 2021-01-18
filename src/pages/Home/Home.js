@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import { MainFeaturedStore, FeaturedStore } from "components";
+import { selectRandomImage } from "utils";
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -25,7 +26,7 @@ const featuredPosts = [
     date: "Nov 12",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    image: "https://source.unsplash.com/random",
+    image: selectRandomImage()?.default,
     imageText: "Image Text",
   },
   {
@@ -33,7 +34,7 @@ const featuredPosts = [
     date: "Nov 11",
     description:
       "This is a wider card with supporting text below as a natural lead-in to additional content.",
-    image: "https://source.unsplash.com/random",
+    image: selectRandomImage()?.default,
     imageText: "Image Text",
   },
 ];

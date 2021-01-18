@@ -67,7 +67,7 @@ const FeaturedStore = ({ item, pathname }) => {
           <Hidden xsDown>
             <CardMedia
               className={classes.cardMedia}
-              image={item.image}
+              image={item.image && item.image}
               title={item.imageTitle}
             />
           </Hidden>

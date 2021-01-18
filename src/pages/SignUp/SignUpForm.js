@@ -132,14 +132,14 @@ export default function SignUp() {
                     id="demo-simple-select"
                     fullWidth
                     name="userType"
-                    defaultValue={10}
+                    defaultValue={"Cliente"}
                     placeholder="User Type"
                     onChange={handleChange("userType")}
                     variant="outlined"
                   >
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
+                    <MenuItem value={"Farmacia"}>Farmacia</MenuItem>
+                    <MenuItem value={"Cliente"}>Cliente</MenuItem>
+                    {/* <MenuItem value={30}>Thirty</MenuItem> */}
                   </Select>
                 </Grid>
                 <Grid item xs={12}>
