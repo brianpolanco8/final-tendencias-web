@@ -23,9 +23,7 @@ const App = () => {
             <Route path="/signin" render={(props) => <SignIn {...props} />} />
             <Route
               path="/articles"
-              render={(props) =>
-                isAuth ? <Articles {...props} /> : <SignIn {...props} />
-              }
+              render={(props) => <Articles {...props} />}
             />
             <Route
               path="/cart"

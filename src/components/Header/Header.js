@@ -101,13 +101,13 @@ export default function Header(props) {
                 Cerrar Sesión
               </Button>
             </Typography>
-            <IconButton aria-label="cart" onClick={() => history.push("/cart")}>
-              <StyledBadge badgeContent={cartItemsCount} color="secondary">
-                <ShoppingCartIcon />
-              </StyledBadge>
-            </IconButton>
           </>
         )}
+        <IconButton aria-label="cart" onClick={() => history.push("/cart")}>
+          <StyledBadge badgeContent={cartItemsCount} color="secondary">
+            <ShoppingCartIcon />
+          </StyledBadge>
+        </IconButton>
       </Toolbar>
       <Toolbar
         component="nav"

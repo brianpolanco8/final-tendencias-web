@@ -1,12 +1,7 @@
 import React from "react";
 import { Grid, Typography } from "@material-ui/core";
 import { FeaturedStore } from "components";
-// import { useEffect } from "react";
-// import axios from "axios";
-import { selectRandomImage } from "utils";
 import { Logo1, Logo4, Logo5, Logo7, Logo8 } from "assets/images";
-
-// console.log("images", selectRandomImage());
 
 const Articles = () => {
   const items = [
