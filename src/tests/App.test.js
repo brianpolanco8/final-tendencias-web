@@ -3,7 +3,7 @@ import { shallow } from "enzyme";
 import { Articles, Cart, Home, SignIn, SignUp } from "pages";
 import ReduxProvider from "tests/GetMockProvider";
 import { createSlice } from "@reduxjs/toolkit";
-import { FeaturedStore, MainFeaturedStore } from "components";
+import { FeaturedStore, Header, MainFeaturedStore } from "components";
 
 let store;
 let reducer;
@@ -75,6 +75,18 @@ describe("Should render all components", () => {
         <MainFeaturedStore />
       </ReduxProvider>
     );
+    expect(wrapper).not.toBe(null);
+  });
+
+  test("Should render header", () => {
+    const wrapper = shallow(
+      <ReduxProvider reduxStore={store}>
+        <Header />
+      </ReduxProvider>
+    );
+
+    // expect(wrapper.find(".title").text()).toContain("Tendencias");
+
     expect(wrapper).not.toBe(null);
   });
 });
