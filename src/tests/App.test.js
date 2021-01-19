@@ -3,6 +3,7 @@ import { shallow } from "enzyme";
 import { Articles, Cart, Home, SignIn, SignUp } from "pages";
 import ReduxProvider from "tests/GetMockProvider";
 import { createSlice } from "@reduxjs/toolkit";
+import { FeaturedStore, MainFeaturedStore } from "components";
 
 let store;
 let reducer;
@@ -49,6 +50,29 @@ describe("Should render all pages", () => {
     const wrapper = shallow(
       <ReduxProvider reduxStore={store}>
         <Cart />
+      </ReduxProvider>
+    );
+    expect(wrapper).not.toBe(null);
+  });
+});
+
+describe("Should render all components", () => {
+  beforeAll(() => {
+    reducer = createSlice({ name: "app", initialState: { data: {} } });
+    store = configureStore({ reducer });
+  });
+  test("Should render Feature Items", () => {
+    const wrapper = shallow(
+      <ReduxProvider>
+        <FeaturedStore />
+      </ReduxProvider>
+    );
+    expect(wrapper).not.toBe(null);
+  });
+  test("Should render main Feature items", () => {
+    const wrapper = shallow(
+      <ReduxProvider reduxStore={store}>
+        <MainFeaturedStore />
       </ReduxProvider>
     );
     expect(wrapper).not.toBe(null);
